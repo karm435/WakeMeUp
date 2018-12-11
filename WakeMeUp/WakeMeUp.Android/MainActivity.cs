@@ -1,13 +1,10 @@
-﻿using System;
-
+﻿using System.Threading.Tasks;
 using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
+using Android.Runtime;
+using Android.Widget;
 using Plugin.Permissions;
-using System.Threading.Tasks;
 
 namespace WakeMeUp.Droid
 {
@@ -38,6 +35,7 @@ namespace WakeMeUp.Droid
 
         private async Task GetPermissionAsync()
         {
+
             var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Plugin.Permissions.Abstractions.Permission.Location);
             if (status != Plugin.Permissions.Abstractions.PermissionStatus.Granted)
             {
