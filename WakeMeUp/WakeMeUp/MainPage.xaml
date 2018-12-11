@@ -5,13 +5,26 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:WakeMeUp"
     xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps">
-    <StackLayout>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
         <maps:Map
-            x:Name="appMap"
-            HeightRequest="200"
+            Grid.Row="0"
             IsShowingUser="True"
-            MapType="Street"
-            WidthRequest="320" />
-    </StackLayout>
+            MapType="Street" />
+
+        <StackLayout
+            Grid.Row="1"
+            Margin="0,10"
+            HorizontalOptions="Center"
+            Orientation="Horizontal">
+
+            <Label Text="Current Location: " VerticalOptions="Center" />
+            <Label Text="test" VerticalOptions="Center" />
+        </StackLayout>
+    </Grid>
 
 </ContentPage>
