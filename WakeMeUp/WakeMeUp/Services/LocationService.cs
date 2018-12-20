@@ -19,6 +19,7 @@ namespace WakeMeUp.Services
         //TODO: Use LocationModel to pass info. Bacuse if we started using diff lib it will be bound to xamarin.essentials location
         public async Task<LocationInfo> GetCurrentLocation()
         {
+            //Delete these afterwards
             //var lastKnowPosition = await Geolocation.GetLastKnownLocationAsync();
             //Debug.WriteLine(lastKnowPosition?.ToString() ?? "No last known location");
 
