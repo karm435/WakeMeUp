@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace WakeMeUp
+namespace WakeMeUp.ViewModels.Base
 {
     public class BaseViewModel : INotifyPropertyChanged
     {

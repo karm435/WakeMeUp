@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="WakeMeUp.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:customMap="clr-namespace:WakeMeUp.CustomControls"
+    xmlns:viewModelBase="clr-namespace:WakeMeUp.ViewModels.Base"
+    viewModelBase:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <customMap:WakeUpMap
+            Grid.Row="0"
+            CurrentPosition="{Binding CurrentPosition}"
+            IsShowingUser="True"
+            MapType="Street" />
+
+        <StackLayout
+            Grid.Row="1"
+            Margin="0,10"
+            HorizontalOptions="Center"
+            Orientation="Vertical">
+            <Button Command="{Binding WhereAmI}" Text="Where am I?" />
+            <Label Text="Current Location: " VerticalOptions="Center" />
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Latitude: " VerticalOptions="Center" />
+                <Label Text="{Binding CurrentPosition.Latitude}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Longitude: " VerticalOptions="Center" />
+                <Label Text="{Binding CurrentPosition.Longitude}" />
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</ContentPage>
