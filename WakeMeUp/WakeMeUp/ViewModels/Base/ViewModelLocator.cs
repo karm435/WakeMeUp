@@ -36,7 +36,9 @@ namespace WakeMeUp.ViewModels.Base
         }
 
         public static readonly BindableProperty AutoWireViewModelProperty =
-            BindableProperty.CreateAttached("AutoWireViewModel", typeof(bool), typeof(ViewModelLocator), default(bool), propertyChanged: OnAutoWiredViewModelChanged);
+            BindableProperty.CreateAttached("AutoWireViewModel", typeof(bool), 
+                                             typeof(ViewModelLocator), default(bool), 
+                                             propertyChanged: OnAutoWiredViewModelChanged);
 
         public static T Resolve<T>()
         {
@@ -70,7 +72,9 @@ namespace WakeMeUp.ViewModels.Base
             var viewType = view.GetType();
             var viewName = viewType.FullName.Replace(".Views.", ".ViewModels.");
             var viewAssemblyName = viewType.Assembly.FullName;
-            var viewModelName = string.Format(CultureInfo.InvariantCulture, "{0}ViewModel,{1}", viewName, viewAssemblyName);
+            var viewModelName = string.Format(CultureInfo.InvariantCulture, 
+                                              "{0}ViewModel,{1}", viewName, 
+                                              viewAssemblyName);
 
             var viewModelType = Type.GetType(viewModelName);
             if (viewModelType == null)

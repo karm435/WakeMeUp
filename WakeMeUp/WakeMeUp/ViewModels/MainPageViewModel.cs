@@ -1,18 +1,16 @@
-﻿using System.Diagnostics;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using Acr.UserDialogs;
+using WakeMeUp.Models;
 using WakeMeUp.Services;
 using WakeMeUp.ViewModels.Base;
-using Xamarin.Essentials;
 using Xamarin.Forms;
-using Xamarin.Forms.Maps;
 
 namespace WakeMeUp.ViewModels
 {
     public class MainPageViewModel : BaseViewModel
     {
-        private Position _currentPosition;
+        private LocationInfo _currentPosition;
         private readonly ILocationService _locationService;
         private readonly IUserDialogs _userDialogs;
 
@@ -26,27 +24,17 @@ namespace WakeMeUp.ViewModels
 
         private async Task WhereAmIAsked()
         {
-            Debug.WriteLine("Where I am asked.");
-
             if (_locationService.IsLocationAvailable())
             {
-
-                var location = await _locationService.GetCurrentLocation();
-                if (location != null)
-                {
-                    // This is probably wrong. As it will create multiple objects of Postion which we do not want.
-                    CurrentPosition = new Position(location.Latitude, location.Longitude);
-                }
+                CurrentPosition = await _locationService.GetCurrentLocation();
             }
             else
             {
-
                 await _userDialogs.AlertAsync("Location is not enabled on the device.", "System Message", "Ok");
             }
         }
 
-
-        public Position CurrentPosition
+        public LocationInfo CurrentPosition
         {
             get { return _currentPosition; }
             set

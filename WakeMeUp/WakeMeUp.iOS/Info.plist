@@ -58,5 +58,15 @@
 		<string>location</string>
 		<string>fetch</string>
 	</array>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>App need Bluetooth access to work.</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Needs access to Calender.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Need to access location to provide alerts.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Need to access location to provide alerts.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Need to access location to provide alerts.</string>
 </dict>
 </plist>
