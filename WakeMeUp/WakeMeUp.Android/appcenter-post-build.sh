@@ -8,12 +8,10 @@
 
 cd $APPCENTER_SOURCE_DIRECTORY
 
-ORG=quicktype
-APP=quicktype
+USER=karmjit.singh
+APP=WakeMeUp
 
-ICON=https://pbs.twimg.com/profile_images/881784177422725121/hXRP69QY_200x200.jpg
-
-build_url=https://appcenter.ms/orgs/$ORG/apps/$APP/build/branches/$APPCENTER_BRANCH/builds/$APPCENTER_BUILD_ID
+build_url=https://appcenter.ms/users/$USER/apps/$APP/build/branches/$APPCENTER_BRANCH/builds/$APPCENTER_BUILD_ID
 build_link="<$build_url|$APP $APPCENTER_BRANCH #$APPCENTER_BUILD_ID>"
 
 version() {
