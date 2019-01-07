@@ -39,15 +39,10 @@ slack_notify_build_failed() {
     slack_notify message="💥 $build_link build failed"
 }
 
-slack_notify_deployed() {
-    slack_notify message="✓ <$build_url|$APP v`version`> released to npm"
-}
-
-slack_notify_homebrew_bump() {
-    slack_notify message="✓ <https://github.com/Homebrew/homebrew-core/pulls|$APP v`version`> bump PR sent to Homebrew"
-}
-
 if [ "$AGENT_JOBSTATUS" != "Succeeded" ]; then
     slack_notify_build_failed
+    exit 0
+else
+    slack_notify_build_passed
     exit 0
 fi
