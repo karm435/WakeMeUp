@@ -21,9 +21,9 @@ namespace WakeMeUp
         protected override void OnStart()
         {
             // Handle when your app starts
-            AppCenter.Start("android=b2b729a0-617d-4006-865d-c2611b259dc7;",
-                //+ "ios={Your iOS App secret here}", 
-                typeof(Analytics), typeof(Crashes));
+            AppCenter.Start("android=b2b729a0-617d-4006-865d-c2611b259dc7;" +
+                            "ios=5689bd9c-d629-47dd-b963-3a406aa17135",
+                            typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep()
