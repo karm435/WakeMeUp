@@ -7,7 +7,6 @@ using Android.Runtime;
 using Android.Widget;
 using Plugin.CurrentActivity;
 using Plugin.Permissions;
-using Xamarin.Forms;
 
 namespace WakeMeUp.Droid
 {
@@ -24,15 +23,21 @@ namespace WakeMeUp.Droid
 
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
+            Initialization(savedInstanceState);
+
+            LoadApplication(new App());
+
+            await GetPermissionAsync();
+        }
+
+        private void Initialization(Bundle savedInstanceState)
+        {
+           
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
 
             Xamarin.FormsMaps.Init(this, savedInstanceState);
 
             UserDialogs.Init(() => CrossCurrentActivity.Current.Activity);
-
-            LoadApplication(new App());
-
-            await GetPermissionAsync();
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)

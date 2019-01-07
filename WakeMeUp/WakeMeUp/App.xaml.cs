@@ -1,4 +1,7 @@
 ﻿using System;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using WakeMeUp.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -18,6 +21,9 @@ namespace WakeMeUp
         protected override void OnStart()
         {
             // Handle when your app starts
+            AppCenter.Start("android=b2b729a0-617d-4006-865d-c2611b259dc7;",
+                //+ "ios={Your iOS App secret here}", 
+                typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep()
